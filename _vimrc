@@ -6,18 +6,19 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-"set rtp+=$HOME/.vim/bundle/Vundle.vim/
-"call vundle#begin('$HOME/.vim/bundle/')
+set rtp+=$HOME/.vim/bundle/Vundle.vim/
+call vundle#begin('$HOME/.vim/bundle/') 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
 "Plugin 'python-mode/python-mode'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -33,7 +34,7 @@ filetype off                  " required
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
-"call vundle#end()            " required
+call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -75,20 +76,22 @@ nnoremap <leader>j I'<ESC>A',<ESC>j
 
 
 """"""""""""""""""""""""""""""""
-"searching            
-""""""""""""""""""""""""""""""""
-set ignorecase
-
-""""""""""""""""""""""""""""""""
 "display settings
 """"""""""""""""""""""""""""""""
 set lines=35 columns=125 "window size
 set guifont=Consolas:h9 "font and text size
 colorscheme koehler "colorscheme
 syntax on "syntax highlighting
-filetype plugin indent on "get filetype automatically
 set t_Co=256 "enable 256 colors
 set number
+set relativenumber
+set shiftwidth=4 "number of spaces to use for autoindenting
+set smartcase "ignore case if search pattern is all lowercase, case-sensitive otherwise
+set ignorecase
+set incsearch "show search matches as you type
+set splitbelow
+set splitright
+
 
 """"""""""""""""""""""""""""""""
 "backup settings
