@@ -18,7 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 "Plugin 'python-mode/python-mode'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -36,6 +36,7 @@ Plugin 'kien/ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+set vb t_vb= "disable error bells
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -63,7 +64,7 @@ imap jj <ESC>
 " new line below by hitting ctrl+o and staying in Normal mode
 nmap <C-o> o<Esc>
 " comment in python with ctrl + b
-nmap <c-b> 0i#<ESC>  
+nmap <c-b> I#<ESC>j  
 " uncomment in python with ctrl + b
 "nmap <C-S-B> 0x 
 " remove highlighting after searching
@@ -73,7 +74,11 @@ nnoremap <leader>e $
 nnoremap <leader>s :so $MYVIMRC<cr>
 nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap <leader>j I'<ESC>A',<ESC>j
-
+"split pane navigation shortcuts
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K> 
+nnoremap <C-L> <C-W><C-L> 
+nnoremap <C-H> <C-W><C-H> 
 
 """"""""""""""""""""""""""""""""
 "display settings
