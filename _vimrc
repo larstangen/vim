@@ -3,8 +3,10 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
+" Begin of Vundle block
+filetype off
+set shellslash
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin('$HOME/.vim/bundle/') 
@@ -16,27 +18,16 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'tpope/vim-surround'
-"Plugin 'kien/ctrlp.vim'
-"Plugin 'python-mode/python-mode'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
+Plugin 'simeji/winresizer'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-set vb t_vb= "disable error bells
+
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -48,6 +39,8 @@ set vb t_vb= "disable error bells
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" End of Vundle block
+
 
 """"""""""""""""""""""""""""""""
 " keymaps "no space between keys for multi action sets
@@ -62,41 +55,60 @@ inoremap <c-p> <Esc>:w<CR>:!python %<CR>
 " using jj to get to Normal mode
 imap jj <ESC>
 " new line below by hitting ctrl+o and staying in Normal mode
-nmap <C-o> o<Esc>
+" nmap <C-o> o<Esc>
 " comment in python with ctrl + b
-nmap <c-b> I#<ESC>j  
 " uncomment in python with ctrl + b
-"nmap <C-S-B> 0x 
+nmap <c-b> I#<ESC>j  
 " remove highlighting after searching
 nnoremap <esc> :noh<return><esc>
 " map leader + e to EOL
-nnoremap <leader>e $
+" nnoremap <leader>e $
+" refresh vim from updated source file
 nnoremap <leader>s :so $MYVIMRC<cr>
+" open source vim file
 nnoremap <leader>v :e $MYVIMRC<cr>
+" quick action for adding single quotes and commas to line
+" run :%normal ,j for whole file
 nnoremap <leader>j I'<ESC>A',<ESC>j
+" add brackets to entire file
+nnoremap <leader>k ggI(<ESC>G$r)<ESC>
+" split current line into rows
+nnoremap <leader>n :s/\s\+/\r/g<cr>
+" remove trailing whitespaces
+nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> 
 "split pane navigation shortcuts
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K> 
-nnoremap <C-L> <C-W><C-L> 
-nnoremap <C-H> <C-W><C-H> 
+ nnoremap <C-J> <C-W><C-J>
+ nnoremap <C-K> <C-W><C-K> 
+ nnoremap <C-L> <C-W><C-L> 
+ nnoremap <C-H> <C-W><C-H> 
+ 
+vnoremap . :norm.<CR>
 
 """"""""""""""""""""""""""""""""
 "display settings
 """"""""""""""""""""""""""""""""
-set lines=35 columns=125 "window size
+"set lines=35 columns=125 "window size
 set guifont=Consolas:h9 "font and text size
 colorscheme koehler "colorscheme
 syntax on "syntax highlighting
 set t_Co=256 "enable 256 colors
 set number
-set relativenumber
+" set relativenumber
 set shiftwidth=4 "number of spaces to use for autoindenting
 set smartcase "ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
 set incsearch "show search matches as you type
 set splitbelow
 set splitright
-
+set showcmd
+set spell spelllang=en_us
+set vb t_vb= "disable error bells
+set wrap
+set linebreak
+set nolist
+set textwidth=100
+"set colorcolumn=100
+highlight ColorColumn guibg=Green
 
 """"""""""""""""""""""""""""""""
 "backup settings
@@ -109,11 +121,16 @@ set noundofile
 " tell vim to use parent file directory as current directory
 set autochdir
 
+" auto save and load folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
 
 " formatting
 " set tab equal to four places
 set tabstop=4
 
+" set shell=C:\Program Files\Git\git-bash.exe
 
 set diffexpr=MyDiff()
 function! MyDiff()
@@ -144,4 +161,3 @@ function! MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
-
