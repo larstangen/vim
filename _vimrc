@@ -6,7 +6,7 @@ set nocompatible              " be iMproved, required
 
 " Begin of Vundle block
 filetype off
-set shellslash
+"set shellslash
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin('$HOME/.vim/bundle/') 
@@ -20,9 +20,14 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 Plugin 'tpope/vim-surround'
 Plugin 'simeji/winresizer'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vimwiki/vimwiki'
+
+"Disabled plugins
+" Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'plasticboyvim-markdown'
+" Plugin 'xolox/vim-notes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -76,6 +81,10 @@ nnoremap <leader>k ggI(<ESC>G$r)<ESC>
 nnoremap <leader>n :s/\s\+/\r/g<cr>
 " remove trailing whitespaces
 nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> 
+" format json files
+nnoremap <leader>f :set ft=javascript<cr>
+" change working directory to current file
+nnoremap <leader>cd :cd %:p:h<CR>
 "split pane navigation shortcuts
  nnoremap <C-J> <C-W><C-J>
  nnoremap <C-K> <C-W><C-K> 
@@ -87,9 +96,10 @@ vnoremap . :norm.<CR>
 """"""""""""""""""""""""""""""""
 "display settings
 """"""""""""""""""""""""""""""""
+let g:vimwiki_hl_headers = 1
 "set lines=35 columns=125 "window size
 set guifont=Consolas:h9 "font and text size
-colorscheme koehler "colorscheme
+colorscheme koehler " colorscheme
 syntax on "syntax highlighting
 set t_Co=256 "enable 256 colors
 set number
@@ -108,7 +118,7 @@ set linebreak
 set nolist
 set textwidth=100
 "set colorcolumn=100
-highlight ColorColumn guibg=Green
+"highlight ColorColumn guibg=Green
 
 """"""""""""""""""""""""""""""""
 "backup settings
@@ -124,6 +134,7 @@ set autochdir
 " auto save and load folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
 
 " formatting
