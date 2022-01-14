@@ -1,0 +1,19 @@
+= DV2 Testing = 
+- Japan Price List Load
+--4039 when joined: 397 expected 4436
+Confirmed we updated with this amount
+
+- Skus to check in front end
+- [X] F5-ADD-BIG-APM-11000 
+- [X] F5-VPR-PEM-C4480-AC
+- [X] F5-ADD-VPR-VCMP-4800
+- [X] F5-UPG-VPR-LCD-C4800
+
+- [X] Need to have John add in attribute1 and 2 (329 and trunc(sysdate)
+
+- EMEA Price List
+Full count is 8360
+Joined count is 1483
+# joined count after partial update is 1543
+# 2827
+

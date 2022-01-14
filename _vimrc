@@ -3,7 +3,7 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 set nocompatible              " be iMproved, required
-
+"i am actually the git version
 " Begin of Vundle block
 filetype off
 "set shellslash
@@ -99,7 +99,7 @@ vnoremap . :norm.<CR>
 let g:vimwiki_hl_headers = 1
 "set lines=35 columns=125 "window size
 set guifont=Consolas:h9 "font and text size
-colorscheme koehler " colorscheme
+colorscheme blue " colorscheme
 syntax on "syntax highlighting
 set t_Co=256 "enable 256 colors
 set number

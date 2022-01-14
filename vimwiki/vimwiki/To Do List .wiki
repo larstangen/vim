@@ -1,0 +1,20 @@
+##################################################
+= Short Term = 
+##################################################
+* [[Bulk Pricing Updates]]
+* [[SF - EBS Integration]]
+
+* Let Gwen and Rev Accounting know about bulk pricing updates and if there's an SSP impact
+
+* Fujita update to skus in Zuora - testing by feb 1
+
+
+
+##################################################
+= Longer Term =
+##################################################
+Project Fujita - sku updates in both Agile and SF
+	Work with Rohit to show where skus update
+	Will need to run manual file for Zuora updates
+CM 2.0 - see what they are doing vs BOT so we don't duplicate efforts
+Use Cheryl as point of contact for next steps PI 12 (also Christian and Emily)

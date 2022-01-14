@@ -1,0 +1,65 @@
+**Double check**
+- [ ] Format needs to be same as john's file and have same name: xxf5_bulk_pricing_extl.csv
+- [ ] Ensure last column also has a comma
+
+	1. SKU_Name = SKU Name
+	2. list_price = Unit List Price (per month for subs)
+	3. emea_price = EMEA Price
+	4. apac_unity_price = APAC Unity Price
+
+- [ ] Save specific sheet as new workbook and then save specific columns using the
+macro below. 
+- [ ] Ensure there are no null values in any columns
+- [ ] Check for zero dollar lines
+
+
+=SQL Table with data=
+SELECT bp.* FROM bolinf.xxf5_bulk_pricing_extl bp WHERE 1 = 1;
+
+== Queries to validate data looks okay ==
+SELECT *
+FROM bolinf.xxf5_bulk_pricing_extl bp
+WHERE list_price is null or emea_price is null or apac_unity_price is null
+ 
+ 
+SELECT *
+FROM bolinf.xxf5_bulk_pricing_extl bp
+WHERE list_price = 0 or emea_price = 0 or apac_unity_price = 0
+== @@@@@@@@@@@@@ ==
+
+
+= CSV File = 
+C:\Users\tangen\Desktop\BulkPricingUpdates\xxf5_bulk_pricing_extl.csv
+
+- F5 Process Advanced Pricing API
+
+[[Bulk Pricing Test Scenarios and Results]]
+
+
+=== Macro Code ===
+Create Macro to export specific values to csv:
+
+Sub ExportCSV()
+  Dim wsOld As Worksheet
+  Dim wsNew As Worksheet
+  Dim vFile
+ 
+  Set wsOld = ActiveSheet
+  Set wsNew = Workbooks.Add(xlWorksheet).Sheets(1)
+ 
+  wsOld.Range("B13:B43195").Copy wsNew.Range("A:A")
+  wsOld.Range("E13:E3195").Copy wsNew.Range("B:B")
+  wsOld.Range("Y13:Z3195").Copy wsNew.Range("C:C")
+  wsOld.Range("Z13:Z3195").Copy wsNew.Range("D:D")
+ 
+  ' replace this with setting vFile to a filename of your choosing if preferred
+  macro_test = Application.GetSaveAsFilename(FileFilter:="CSV files (*.csv),*.csv")
+  If TypeName(macro_test) = "Boolean" Then Exit Sub ' cancelled
+ 
+  Application.DisplayAlerts = False
+  wsNew.SaveAs vFile, FileFormat:=xlCSV
+  Application.DisplayAlerts = True
+  wsNew.Parent.Close False
+
+End Sub
+

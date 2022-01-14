@@ -1,0 +1,13 @@
+SF -> OM Interface Known Requirements and Issues We Need to Address
+###############################################################
+
+1. Do not need to handle child service as that inherits the service 
+2. If a line has a child add configured underneath we need to set it's top model line id to itself
+	(Do we need to also set link_to_line_id?)
+3. 
+
+
+Check for top idx and query based on parent line_id
+check for top idx and query based on child line_id
+if both have values return top idx
+
