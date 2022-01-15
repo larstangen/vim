@@ -8,7 +8,10 @@
 
 = Vim Docs =
 - Create a script to automatically update vimrc when git file is updated
+- Location of vimwiki path file: C:\Users\Lars\.vim\bundle\vimwiki\autoload\vimwiki\vars.vim
 
+[[Git Docs]]
+[[Vim Commands]]
 
 [[VimWiki Key Commands]]
 

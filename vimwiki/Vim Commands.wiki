@@ -1,0 +1,5 @@
+:%bd|e# :: Close all buffers except current
+:sbuf 1 :: opens number buffer in new split
+:buffers :: list all buffers
+:bdel 1 :: deletes buffer 1
+:1,4 bdel :: deletes buffer 1 through 4
