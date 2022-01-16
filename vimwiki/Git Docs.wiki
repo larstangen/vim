@@ -6,5 +6,3 @@ git add <file name> :: Add files to your local repository
 git commit -m "Commit message" :: commit changes, but does not yet add to remote repository
 git push origin master :: pushes changes out to remote repo
 
-PAT
-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
