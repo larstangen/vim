@@ -3,7 +3,7 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 set nocompatible              " be iMproved, required
-"i am actually the git version
+
 " Begin of Vundle block
 filetype off
 "set shellslash
@@ -57,6 +57,10 @@ nmap <F5> <Esc>:w<CR>:!python %<CR>
 nmap <c-p> <Esc>:w<CR>:!python %<CR>
 imap <F5> <Esc>:w<CR>:!python %<CR>
 inoremap <c-p> <Esc>:w<CR>:!python %<CR>
+"Change working directory to HOME
+nnoremap <leader>gh :cd ~<cr>
+"Replace local _vimrc with git version
+nnoremap <leader>r :! python refreshvimrc.py
 " using jj to get to Normal mode
 imap jj <ESC>
 " new line below by hitting ctrl+o and staying in Normal mode
@@ -99,12 +103,13 @@ vnoremap . :norm.<CR>
 let g:vimwiki_hl_headers = 1
 "set lines=35 columns=125 "window size
 set guifont=Consolas:h9 "font and text size
-colorscheme blue " colorscheme
+colorscheme koehler " colorscheme
 syntax on "syntax highlighting
 set t_Co=256 "enable 256 colors
 set number
 " set relativenumber
 set shiftwidth=4 "number of spaces to use for autoindenting
+set tabstop=4
 set smartcase "ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
 set incsearch "show search matches as you type
@@ -132,14 +137,10 @@ set noundofile
 set autochdir
 
 " auto save and load folds
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview
+"format json files
 autocmd BufNewFile,BufRead *.json set ft=javascript
-
-
-" formatting
-" set tab equal to four places
-set tabstop=4
 
 " set shell=C:\Program Files\Git\git-bash.exe
 
