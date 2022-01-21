@@ -11,7 +11,13 @@
 macro below. 
 - [ ] Ensure there are no null values in any columns
 - [ ] Check for zero dollar lines
-
+- [ ] Gather before numbers accounting for lines that alre
+- [X] Check to make sure there aren't any duplicate lines
+	- [X] Base price list currently has:
+	- [X] YK-BIG-AWF-I7600
+	- [X] YK-SVC-BIG-RMA-3
+		  
+=== ================================= ===
 
 =SQL Table with data=
 SELECT bp.* FROM bolinf.xxf5_bulk_pricing_extl bp WHERE 1 = 1;

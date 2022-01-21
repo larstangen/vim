@@ -3,3 +3,5 @@
 :buffers :: list all buffers
 :bdel 1 :: deletes buffer 1
 :1,4 bdel :: deletes buffer 1 through 4
+
+Fixing vimrc when trying to run on linux: :w ++ff=unix

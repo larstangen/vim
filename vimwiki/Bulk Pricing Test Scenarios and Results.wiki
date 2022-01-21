@@ -17,3 +17,17 @@ Joined count is 1483
 # joined count after partial update is 1543
 # 2827
 
+- Base Price List
+Full count is 12251
+Joined count is 3133
+Joined count after errored run is: 3291 (158 updated)
+After two run record count: 6137
+3004 difference
+3005 entries in BASE with attribute1 = 329
+158 difference after first run
+
+- Apac Price List
+Joined count is 1937
+132 records already have dupes (all just 2 records)
+No pure duplicates - expected output is 1805
+Final count is 3742 which matches expected outcome

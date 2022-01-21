@@ -1,0 +1,28 @@
+Distros to try:
+# Endeavor - Arch based :: https://endeavouros.com/
+	# Manjaro?
+# Pop OS :: https://support.system76.com/articles/install-pop/
+# Zorin :: https://zorin.com/os/download/
+# Feren OS :: Ubuntu based and Plasma KDE
+	# Wireless did not work upon initial install
+	# Smaller distro so less community support
+	# Really nice look and feel
+
+Validate MD5SUM: https://emn178.github.io/online-tools/md5_checksum.html
+
+
+First steps upon install:
+https://www.youtube.com/watch?v=FgJ1k476ds0&t=422s
+
+sudo apt update
+sudo apt full-upgrade
+backup utility - timeshift
+ubuntu restricted extras: sudo apt-get install ubuntu-restricted-extras
+copy utility - copyq sudo apt install copyq
+Neofetch or fastfetch
+Update mirrors
+Spectacle for screenshots - this was on Feren
+
+Wireless driver steps:
+askubuntu.com/questions/55868/installing-braodcom-wireless-drivers
+14e4:43a0 - bcmwl-kernel-source

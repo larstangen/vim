@@ -6,3 +6,8 @@ git add <file name> :: Add files to your local repository
 git commit -m "Commit message" :: commit changes, but does not yet add to remote repository
 git push origin master :: pushes changes out to remote repo
 
+To update from remote repo:
+git pull
+
+If you want to update and override local changes:
+git fetch git reset --hard origin/master

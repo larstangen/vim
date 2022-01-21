@@ -1,13 +1,25 @@
 ##################################################
 = Short Term = 
 ##################################################
-* [[Bulk Pricing Updates]]
-* [[SF - EBS Integration]]
 
-* Let Gwen and Rev Accounting know about bulk pricing updates and if there's an SSP impact
+* [ ] Let Gwen and Rev Accounting know about bulk pricing updates and if there's an SSP impact
 
-* Fujita update to skus in Zuora - testing by feb 1
+* [ ] Fujita update to skus in Zuora - testing by feb 1
+	* [ ] 137924 is the ADO story for Ramya
+* [X] Remove dupe skus in Prod
+* [ ] MWA setup for OCI
+* [ ] Goals in Workday for MBO
+* [X] Schedule time with Cheryl for PI12 planning
 
+* [ ] Create story under feature 42095 documenting how we can manually invoice 
+	* [ ] 141278 - does anything else need to be done with this?
+
+Goals:
+Mentoring Sunil
+Documentation for existing processes
+
+Cheryl FCP True Forward (with line level back dating)
+	Is there a tag that needs to be put on the stories from an architectural standpoint?
 
 
 ##################################################
