@@ -81,10 +81,12 @@ nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap <leader>j I'<ESC>A',<ESC>j
 " add brackets to entire file
 nnoremap <leader>k ggI(<ESC>G$r)<ESC>
-" split current line into rows
+" split current line into rows based on spaces
 nnoremap <leader>n :s/\s\+/\r/g<cr>
 " remove trailing whitespaces
-nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> 
+"nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> 
+" save file
+nnoremap <leader>w :w<return>
 " format json files
 nnoremap <leader>f :set ft=javascript<cr>
 " change working directory to current file
@@ -94,6 +96,10 @@ nnoremap <leader>cd :cd %:p:h<CR>
  nnoremap <C-K> <C-W><C-K> 
  nnoremap <C-L> <C-W><C-L> 
  nnoremap <C-H> <C-W><C-H> 
+"new vertical split
+nnoremap <leader>nv :vnew<CR>
+"new normal split
+nnoremap <leader>ns :new<CR>
  
 vnoremap . :norm.<CR>
 
@@ -102,7 +108,7 @@ vnoremap . :norm.<CR>
 """"""""""""""""""""""""""""""""
 let g:vimwiki_hl_headers = 1
 "set lines=35 columns=125 "window size
-set guifont=Consolas:h9 "font and text size
+set guifont=Consolas:h9 "font an text size
 colorscheme koehler " colorscheme
 syntax on "syntax highlighting
 set t_Co=256 "enable 256 colors
@@ -117,11 +123,14 @@ set splitbelow
 set splitright
 set showcmd
 set spell spelllang=en_us
+autocmd InsertEnter * setlocal spell
+autocmd InsertLeave * setlocal nospell
 set vb t_vb= "disable error bells
 set wrap
 set linebreak
 set nolist
 set textwidth=100
+set ve+=onemore
 "set colorcolumn=100
 "highlight ColorColumn guibg=Green
 
